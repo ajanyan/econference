@@ -22,7 +22,7 @@
   }
 
 require("../php/connect.php");
-$sql="SELECT * FROM user WHERE Status IS NOT NULL";
+$sql="SELECT * FROM user WHERE Review1 IS NOT NULL AND Review2 IS NOT NULL";
 $res=mysqli_query($db,$sql);
 echo mysqli_error($db);
 
@@ -92,7 +92,14 @@ echo mysqli_error($db);
        
         while($row=mysqli_fetch_assoc($res))
         { 
-                
+          if($row['Status']=='Yes')
+          {
+            $mailstatus="Mail Sent"; 
+          }
+          else
+          {
+            $mailstatus="Mail not sent"  ;
+          }
           $id=$row['id'];
           echo "<tr><td>
                    <form action=viewcompleted.php method='post'>
@@ -100,12 +107,13 @@ echo mysqli_error($db);
           <input type='submit' class='btn btn-link' value ='$row[Upload]' ></form>
 
           </td><td>{$row['title']}</td><td>{$row['Name']}</td><td>{$row['Email']}</td>
-          <td>{$row['decision']}</td>
+          <td>{$mailstatus}</td>
 
 
           </tr>";
          
         }
+      
       }
     ?>
   </tbody>

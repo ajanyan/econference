@@ -142,7 +142,7 @@
     // <input type='submit' class='btn btn-primary form-control' value='View full Size'></input>  
     // </form>";
 
-
+/*
     function edit($id,$review,$r)
     {
       require("../php/connect.php");
@@ -170,7 +170,7 @@
         Overall Score
         <input type="number" class="form-control" name='message'  placeholder='In scale of 0-10' required=''>
           <br>
-        <input type='submit' class="form-control btn btn-danger"  <link rel="stylesheet" type="text/css"  value='Submit' rows="5" id='input-submit'></input>
+        <input type='submit' class="form-control btn btn-danger"  <link rel="stylesheet" type="text/css"  value='Proceed' rows="5" id='input-submit'></input>
        
  
      </div>
@@ -180,7 +180,7 @@
   <?php
     
 
-}
+}*/
 
     function des($id,$substatus)
     {
@@ -227,7 +227,10 @@ if ($row[$review]== NULL)
   Overall Score
   <input type="number" step="any" min="0" max="10" class="form-control" name='message'  placeholder='In scale of 0-10' required=''>
     <br>
-  <input type='submit' class="form-control btn btn-danger"  <link rel="stylesheet" type="text/css"  value='Submit' rows="5" id='input-submit'></input>
+  Review Comments
+  <textarea class="form-control" name='m7'cols="6"  ></textarea>
+    <br>
+  <input type='submit' class="form-control btn btn-danger"  <link rel="stylesheet" type="text/css"  value='Proceed' rows="5" id='input-submit'></input>
 </div>
 </form>
 
@@ -244,7 +247,7 @@ else if ($row[$substatus]==NULL)
 <!-- <input type="submit" class="form-control" name="decision" value="Edit"><br><br> -->
 <input type="submit" class="btn bg-success" name="decision" value="Accept">
 <input type="submit" class="btn bg-danger" name="decision" value="Reject">
-<input type="submit" class="btn bg-warning" name="decision" value="Unable">
+<input type="submit" class="btn bg-warning" name="decision" value="Unable to judge">
 </div>
   
 </form>
@@ -282,7 +285,7 @@ else
   }
   if(isset($_POST['message']))
   {
-    $sql1="UPDATE user SET $review='$_POST[message]',r1$r='$_POST[m1]',r2$r='$_POST[m2]',r3$r='$_POST[m3]',r4$r='$_POST[m4]',r5$r='$_POST[m5]',r6$r='$_POST[m6]' WHERE id='$id'";
+    $sql1="UPDATE user SET $review='$_POST[message]',r1$r='$_POST[m1]',r2$r='$_POST[m2]',r3$r='$_POST[m3]',r4$r='$_POST[m4]',r5$r='$_POST[m5]',r6$r='$_POST[m6]',r7$r='$_POST[m7]' WHERE id='$id'";
     mysqli_query($db,$sql1);
     echo mysqli_error($db);
     header("Refresh:0");
@@ -294,7 +297,7 @@ else
     {
       edit($id,$review,$r);
     }
-    elseif ($_POST['decision']=='Accept' || $_POST['decision']=='Reject' || $_POST['decision']=='Unable') 
+    elseif ($_POST['decision']=='Accept' || $_POST['decision']=='Reject' || $_POST['decision']=='Unable to judge') 
     {
       des($id,$substatus);
     }

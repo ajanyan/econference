@@ -105,7 +105,7 @@ p {
       
       <div class="jumbotron col-lg-12">
             <h5 class="display-5"><?php echo "Reviewer 1:$row2[sub1]"; ?></h5>
-            <p class="lead"><?php echo "Status 1:$row2[substatus1]ed"; ?></p>
+            <p class="lead"><?php echo "Status 1:$row2[substatus1]"; ?></p>
             <hr class="my-4">
   Originality:<?php echo $row2['r11'];?>  (In scale of 0-5)<br>
   Relevance to the conference topic:<?php echo $row2['r21'];?>  (In scale of 0-5)<br>
@@ -114,6 +114,7 @@ p {
   Chance of conversion of the method to product/software:<?php echo $row2['r51'];?>  (In scale of 0-5)<br>
   Language  and expressiveness of the article:<?php echo $row2['r61'];?>  (In scale of 0-5)<br>
   Overall Score:<?php echo $row2['Review2'];?>  (In scale of 0-10)<br>
+  Review comment : <?php echo $row2['r71'];?><br>
                     <p class="lead">
             </p>  
       </div><!-- </div> -->
@@ -121,7 +122,7 @@ p {
 <!--     <div class="col-lg-6">
  -->      <div class="jumbotron col-lg-6">
             <h5 class="display-5"><?php echo "Reviewer 2:$row2[sub2]"; ?></h5>
-            <p class="lead"><?php echo "Status 2:$row2[substatus2]ed"; ?></p>
+            <p class="lead"><?php echo "Status 2:$row2[substatus2]"; ?></p>
             <hr class="my-4">
               Originality:<?php echo $row2['r12'];?>  (In scale of 0-5)<br>
   Relevance to the conference topic:<?php echo $row2['r22'];?>  (In scale of 0-5)<br>
@@ -130,6 +131,7 @@ p {
   Chance of conversion of the method to product/software:<?php echo $row2['r52'];?>  (In scale of 0-5)<br>
   Language  and expressiveness of the article:<?php echo $row2['r62'];?>  (In scale of 0-5)<br>
   Overall Score:<?php echo $row2['Review2'];?>  (In scale of 0-10)<br>
+  Review comment : <?php echo $row2['r72'];?><br>
         
             <p class="lead">
         

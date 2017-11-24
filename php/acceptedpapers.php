@@ -19,7 +19,7 @@
     }
 
     require("../php/connect.php");
-    $sql="SELECT * FROM user WHERE Status IS NOT NULL AND decision='Accept'";
+    $sql="SELECT * FROM user WHERE Review1 IS NOT NULL AND Review2 IS NOT NULL AND decision='Accept'";
     $res=mysqli_query($db,$sql);
     echo mysqli_error($db);
 
@@ -88,14 +88,17 @@
         { 
                 
           $id=$row['id'];
-          echo "<tr><td>{$row['Upload']}</td><td>{$row['title']}</td><td>{$row['Name']}</td><td>{$row['Email']}</td>
-                <td>Completed</td>
-
+          echo "<tr>
           <td>
           <form action=viewcompleted.php method='post'>
           <input type='hidden' name ='id' value='$id'>
-          <input type='submit' class='btn' value ='Manage' ></form>
-          </td></tr>";
+          <input type='submit' class='btn btn-link' value = '$row[Upload]' ></form>
+          </td>
+          
+          <td>{$row['title']}</td><td>{$row['Name']}</td><td>{$row['Email']}</td>
+                <td>Completed</td>
+
+        </tr>";
          
         }
       }

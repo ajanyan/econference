@@ -238,6 +238,7 @@ if ($row2['Status']==NULL && $row2['substatus1']!=NULL && $row2['sub1']!=NULL)
   Chance of conversion of the method to product/software:<?php echo $row2['r51'];?>(In scale of 0-5)<br>
   Language  and expressiveness of the article:<?php echo $row2['r61'];?>(In scale of 0-5)<br>
   Overall Score:<?php echo $row2['Review1'];?>(In scale of 0-10)<br>
+  Review Comments:<?php echo "       ".$row2['r71']."   ";?><br>
         
           
         </div>
@@ -272,6 +273,7 @@ if ($row2['Status']==NULL && $row2['substatus2']!=NULL && $row2['sub2']!=NULL)
   Chance of conversion of the method to product/software:<?php echo $row2['r52']."   ";?>(In scale of 0-5)<br>
   Language  and expressiveness of the article:<?php echo $row2['r62']."   ";?>(In scale of 0-5)<br>
   Overall Score:<?php echo $row2['Review2']."   ";?>(In scale of 0-10)<br>
+  Review Comments:<?php echo "      ".$row2['r72']."   ";?><br>
         
           
         </div>

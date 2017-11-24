@@ -22,13 +22,8 @@ $row=mysqli_fetch_assoc($res);
 	
 	$subject = "Review of Submitted Paper";
 	
-	$txt = "Hi $row[Name],
-	     Your submitted paper is $row[decision]ed.
-	     Review of the paper is given below
-	     Review 1
-	     $row[Review1]
-	     Review 2
-	     $row[Review2]";
+	$txt = "This is a demo mail
+	to check whether mailing system is working";
 	$headers = "From: econferencecon@gmail.com";
 mail($to,$subject,$txt,$headers);
 $sql1="UPDATE user SET Status='Yes' WHERE id='$_POST[id]'";

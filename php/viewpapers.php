@@ -108,7 +108,7 @@ echo mysqli_error($db);
           }
           else
           {
-            $status="Review Submitted by reviewer";
+            $status="Review Completed";
           }         
           $id=$row['id'];
           echo "<tr><td>{$row['Upload']}</td><td>{$row['title']}</td><td>{$row['Name']}</td><td>{$row['Email']}</td>
@@ -119,7 +119,13 @@ echo mysqli_error($db);
           <form action=viewdoc.php method='post'>
           <input type='hidden' name ='id' value='$id'>
           <input type='submit' class='btn btn-default' value ='Manage' ></form>
-          </td></tr>";
+          </td>
+          <td>
+          <form action=../php/download.php method='post'>
+          <input type='hidden' name ='id' value='$id'>
+          <input type='submit' class='btn btn-default' value ='Download' ></form>
+          </td>
+          </tr>";
          
         }
       }
