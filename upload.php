@@ -8,6 +8,8 @@
 
 
 <?php
+if(isset($_POST["email"]))
+{
 require("./php/connect.php");
 
 $name=$_POST["name"];
@@ -63,7 +65,11 @@ if (is_uploaded_file($_FILES['paper_source']['tmp_name']))
 $sql3="UPDATE user SET Upload='$name' WHERE id='$row[id]'";
  			mysqli_query($db,$sql3);
 echo mysqli_error($db);
-
+}
+else
+{
+    echo "Unauthorised access";
+}
 ?>
 </body>
 </html>
