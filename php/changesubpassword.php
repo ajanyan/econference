@@ -6,6 +6,7 @@
     #myiframe {width:700px; height:350%;} 
   </style>
   <title>Econference</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
@@ -83,12 +84,28 @@ require("../php/connect.php");
     {
       $sql2="UPDATE des SET Password='$_POST[newpass]' WHERE Email='$_SESSION[user]'";
       mysqli_query($db,$sql2);
-      echo "Sucess";
-      header('Location:../php/logout.php');
+     // echo "Sucess";
+      //header('Location:../php/logout.php');
+                     echo"<script>
+               swal(
+                'Success',
+                'Password changed',
+                'success'
+                ).then(function() {
+                window.location.href ='../php/logout.php'; 
+              });
+              </script>";
     }
     else
     {
-      echo "Wrong Password";
+    //  echo "Wrong Password";
+            echo"<script>
+          swal(
+              'Oops...',
+              'Password does not match!',
+              'error'
+            )
+          </script>";
     }
 
   }

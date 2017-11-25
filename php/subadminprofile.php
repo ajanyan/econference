@@ -28,7 +28,7 @@ $name=$_SESSION['name'];
 $email=$_SESSION['user'];
 
 require('../php/connect.php');
-$sql="SELECT * FROM user WHERE (sub1='$name' OR sub2='$name') AND (substatus1 IS  NULL OR substatus2 IS NULL)";
+$sql="SELECT * FROM user WHERE (sub1='$name' OR sub2='$name') AND trash=0";
 $res=mysqli_query($db,$sql);
 echo mysqli_error($db);
 
@@ -45,12 +45,7 @@ echo mysqli_error($db);
       <li class="nav-item active">
         <a class="nav-link" href="../php/subadminprofile.php">Assigned Papers <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../php/completedpapers.php"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../php/viewsubadmin.php"></a>
-      </li>
+     
       <li class="nav-item">
         <a class="nav-link" href="../php/changesubpassword.php">Change Password</a>
       </li>

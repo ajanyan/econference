@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
+<body>
+
+
 <?php
 		
 	if(!isset($_POST["password"] ) && !isset($_POST["email"]))
@@ -42,9 +51,21 @@
 	}
 	else
 	{
-		echo "Username and Password does not match";
+		echo"<script>
+		swal(
+  			'Oops...',
+  			'Usename and password does not match!',
+  			'error'
+			).then(function() {
+			window.location.href ='../index.php';
+			});
+		</script>";
+
 	}
 
-
-
 	?>
+
+
+
+	</body>
+</html>

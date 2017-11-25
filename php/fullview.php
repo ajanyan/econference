@@ -20,7 +20,7 @@
 
 <?php 
 	$id=$_POST['id'];
-	$doc="../pdf/doc".$id.".pdf" ;
+	$doc="../pdf/R".$id.".pdf" ;
 
 echo"<iframe name='myiframe' id='myiframe' src=$doc>";
 

@@ -29,6 +29,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
  -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
     </head>
 
     <body>
@@ -42,15 +43,6 @@
     }
 
  ?>
-
-
-
-
-
-
-
-
-
 
         <!-- Top content -->
         <div class="top-content">
@@ -135,10 +127,13 @@
         {
 ?>
         <script>
-            window.setTimeout(function() 
-            {
-                window.location = '../php/viewsubadmin.php';
-            }, 1);
+               swal(
+                'Success',
+                'Reviewer created',
+                'success'
+                ).then(function() {
+                window.location.href ='../php/viewsubadmin.php'; 
+              });
         </script>
 <?php
         }
@@ -149,12 +144,18 @@
 
             ?>
 
-            <script>alert("User already registered")</script>
+            <script>
+                 swal(
+                        'Oops...',
+                        'User already exists!',
+                        'error'
+                     )
+            </script>
             <?php
 
 
 
-            echo "User already registered";  
+         //   echo "User already registered";  
 ?>
       <!--   <script>
             window.setTimeout(function() 

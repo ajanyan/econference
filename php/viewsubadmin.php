@@ -49,8 +49,15 @@ $res=mysqli_query($db,$sql);
         <a class="nav-link" href="../php/rejectedpapers.php">Rejected Papers</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="../php/trashedpapers.php">Trash</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../php/up.php">Upload</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="../php/changepassword.php">Change Password</a>
       </li>
+
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item active">

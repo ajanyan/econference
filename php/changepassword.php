@@ -3,6 +3,7 @@
 <head>
 
   <title>Econference</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
@@ -31,6 +32,12 @@
       <li class="nav-item">
         <a class="nav-link" href="../php/rejectedpapers.php">Rejected Papers</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../php/trashedpapers.php">Trash</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../php/up.php">Upload</a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="../php/changepassword.php">Change Password</a>
       </li>
@@ -43,9 +50,6 @@
     </ul>
 
   </nav>
-
-
-    
 
 <?php
   session_start();
@@ -88,12 +92,27 @@ require("../php/connect.php");
     {
       $sql2="UPDATE des SET Password='$_POST[newpass]' WHERE Email='$_SESSION[user]'";
       mysqli_query($db,$sql2);
-      echo "Sucess";
-      header('Location:../php/logout.php');
+      //echo "Sucess";
+               echo"<script>
+               swal(
+                'Success',
+                'Password changed',
+                'success'
+                ).then(function() {
+                window.location.href ='../php/logout.php'; 
+              });
+              </script>";
+    //  header('Location:../php/logout.php');
     }
     else
     {
-      echo "Wrong Password";
+      echo"<script>
+          swal(
+              'Oops...',
+              'Password does not match!',
+              'error'
+            )
+          </script>";
     }
 
   }

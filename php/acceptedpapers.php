@@ -19,7 +19,7 @@
     }
 
     require("../php/connect.php");
-    $sql="SELECT * FROM user WHERE Review1 IS NOT NULL AND Review2 IS NOT NULL AND decision='Accept'";
+    $sql="SELECT * FROM user WHERE Review1 IS NOT NULL AND Review2 IS NOT NULL AND decision='Accept' AND trash=0";
     $res=mysqli_query($db,$sql);
     echo mysqli_error($db);
 
@@ -51,8 +51,15 @@
         <a class="nav-link" href="../php/rejectedpapers.php">Rejected Papers</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="../php/trashedpapers.php">Trash</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../php/up.php">Upload</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="../php/changepassword.php">Change Password</a>
       </li>
+
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item active">

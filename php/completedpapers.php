@@ -22,7 +22,7 @@
   }
 
 require("../php/connect.php");
-$sql="SELECT * FROM user WHERE Review1 IS NOT NULL AND Review2 IS NOT NULL";
+$sql="SELECT * FROM user WHERE Review1 IS NOT NULL AND Review2 IS NOT NULL AND trash=0";
 $res=mysqli_query($db,$sql);
 echo mysqli_error($db);
 
@@ -52,6 +52,13 @@ echo mysqli_error($db);
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../php/rejectedpapers.php">Rejected Papers</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../php/trashedpapers.php">Trash</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="../php/up.php">Upload</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../php/changepassword.php">Change Password</a>
@@ -94,11 +101,11 @@ echo mysqli_error($db);
         { 
           if($row['Status']=='Yes')
           {
-            $mailstatus="Mail Sent"; 
+            $mailstatus=$row["decision"]; 
           }
           else
           {
-            $mailstatus="Mail not sent"  ;
+            $mailstatus="Decision not taken"  ;
           }
           $id=$row['id'];
           echo "<tr><td>

@@ -11,21 +11,7 @@
 </head>
 <body>
 
-<script>$(window).resize(function () {
 
-    windowWidth = $(window).innerWidth();
-
-    if (windowWidth < 100) {
-
-        $("#myiframe").hide();
-
-    } else if (windowWidth >= YOUR_FACEBOOK_WIDTH) {
-
-        $("#YOUR_COMMENT_BOX").show();
-
-    }
-
-});</script>
 <?php
   session_start();
   if(!isset($_SESSION["user"] ) && !isset($_SESSION["email"]))
@@ -75,7 +61,20 @@
 
 
 
+  require("../php/connect.php");
+  $sql="SELECT * FROM user WHERE id='$id'";
+  $res=mysqli_query($db,$sql);
+  $row=mysqli_fetch_assoc($res);
 
+
+  if($r==1)
+  {
+    $co_rev=$row['sub2'];
+  }
+  else if($r==2)
+  {
+    $co_rev=$row['sub1'];
+  }
 
 ?>
   <nav class="navbar navbar-expand-md navbar-dark bg-danger">
@@ -116,12 +115,13 @@
   </nav>
 
 
+
 <div class="container-float">
   <div class="row">
     <div class="col-lg-6">
 
       <?php 
-    $doc="../pdf/doc".$id.".pdf" ;
+    $doc="../pdf/R".$id.".pdf" ;
      echo"<iframe name='myiframe' class='' id='myiframe' src=$doc></iframe>";
 
 
@@ -131,7 +131,12 @@
       
     </div>
     <div class="col-lg-6">
-      
+      <table class="table">
+        <th><?php echo "Other reviewer :".$co_rev ?></th>
+        <th><?php echo"Plagiarism :".$row['plagiarism']."%" ; ?></th>
+      </table>
+   
+
 
 <div class="col-lg-12">
 <?php
@@ -200,10 +205,7 @@
 
 
 <?php 
-  require("../php/connect.php");
-  $sql="SELECT * FROM user WHERE id='$id'";
-  $res=mysqli_query($db,$sql);
-  $row=mysqli_fetch_assoc($res);
+
 
 if ($row[$review]== NULL)
  {
@@ -256,7 +258,21 @@ else if ($row[$substatus]==NULL)
 }
 else
 {
-  echo "<div class='jumbotron'>Review completed</div>";
+  ?>
+  <div class='jumbotron'>
+  <h5><?php echo "Status:". $row['substatus'.$r];?></h5> <br>
+  Originality:<?php echo $row['r1'.$r]."   ";?>(In scale of 0-5)<br>
+  Relevance to the conference topic:<?php echo $row['r2'.$r];?>(In scale of 0-5)<br>
+  Significance of the article:<?php echo $row['r3'.$r];?>(In scale of 0-5)<br>
+  Study of previous works in the domain of work:<?php echo $row['r4'.$r];?>(In scale of 0-5)<br>
+  Chance of conversion of the method to product/software:<?php echo $row['r5'.$r];?>(In scale of 0-5)<br>
+  Language  and expressiveness of the article:<?php echo $row['r6'.$r];?>(In scale of 0-5)<br>
+  Overall Score:<?php echo $row['Review'.$r];?>(In scale of 0-10)<br>
+  Review Comments:<?php echo "       ".$row['r7'.$r]."   ";?><br>
+
+  Review completed</div>";
+
+  <?php
 }
 ?>
 

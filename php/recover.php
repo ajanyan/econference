@@ -5,7 +5,7 @@
 	<title>RECOVER</title>
 </head>
 <body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
 
 <?php 
@@ -32,13 +32,23 @@ require("connect.php");
 
     <?php
       if( mysqli_num_rows( $selectRes )==0 ){
-        echo '<tr><td colspan="4">Sorry your Email is not registered</td></tr>';
+       // echo '<tr><td colspan="4">Sorry your Email is not registered</td></tr>';
 ?>
     <script>
-      window.setTimeout(function() 
-      {
-          window.location = '../html/recover.html';
-        }, 2000);
+
+          swal(
+        'Oops...',
+        'Your Email is not registered!',
+        'error'
+      ).then(function() {
+      window.location.href ='../index.php';
+
+ 
+});
+      // window.setTimeout(function() 
+      // {
+      //     window.location = '../html/recover.html';
+      //   }, 2000);
     </script>
     <?php
 
@@ -57,17 +67,31 @@ require("connect.php");
       E Conference a Life";
 			$headers = "From: econferencecon@gmail.com";
 
-			mail($to,$subject,$txt,$headers);
-
-
-			echo "The password has been send to your registered Email address";
-			
-
-
-			
-
-
-
+			if(mail($to,$subject,$txt,$headers))
+      {
+			//echo "The password has been send to your registered Email address";
+			   echo"<script>
+               swal(
+                'Success',
+                'Password has been send to your registered Email address',
+                'success'
+                ).then(function() {
+                window.location.href ='../index.php'; 
+              });
+              </script>";
+      }
+      else
+      {
+            echo"<script>
+              swal(
+                  'Error',
+                  'Please contact admin!',
+                  'error'
+                  ).then(function() {
+                window.location.href ='../index.php';
+                });
+              </script>";
+     }
 
 
 
@@ -95,12 +119,12 @@ require("connect.php");
 
 
  ?>
-    <script>
+<!--     <script>
       window.setTimeout(function() 
       {
           window.location = '../index.php';
         }, 2000);
-    </script>
+    </script> -->
 <br>
 
 <br>

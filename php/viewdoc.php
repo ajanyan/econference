@@ -2,7 +2,7 @@
 <html>
 <head>
   <style type="text/css">
-    #myiframe {width:100%; height:900px;} 
+    #myiframe {width:100%; height:980px;} 
   </style>
   <title>Econference</title>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -12,6 +12,8 @@
 <body>
   <?php
     session_start();
+   require("../php/connect.php");
+
   if(!isset($_SESSION["user"] ) && !isset($_SESSION["email"]))
   {
     header("location:../index.php");
@@ -40,7 +42,21 @@
       
     }
 
+    if (isset($_POST['decision'])) 
+      {
 
+      if ($_POST['decision']=='Accept' || $_POST['decision']=='Reject' || $_POST['decision']=='Unable to judge') 
+        {
+          $sql3="UPDATE user SET decision='$_POST[decision]' WHERE id='$id'";
+          $sql5="UPDATE user SET Status='Yes' WHERE id='$id'";
+          mysqli_query($db,$sql3);
+          mysqli_query($db,$sql5);
+          echo mysqli_error($db);
+          header("Refresh:0");
+
+        }
+
+    }
 
 
 
@@ -107,14 +123,18 @@ $row2=mysqli_fetch_assoc($res2);
 ?>
 
 <?php
+    
+    
 
 
-
-
-
-
-
-
+  if (isset($_POST['pl'])) 
+  {
+    $pl=$_POST['pl'];
+    $sql1="UPDATE user SET plagiarism='$pl' WHERE id='$id' ";
+    mysqli_query($db,$sql1);
+    echo mysqli_error($db);
+    header("Refresh:0");
+  }
   if (isset($_POST['assign1'])) 
   {
     $assign1=$_POST['assign1'];
@@ -143,7 +163,7 @@ $row2=mysqli_fetch_assoc($res2);
   <div class="row">
 <!--     <div class="col-lg-6" >
  -->        <?php 
-     $doc="../pdf/doc".$id.".pdf" ;
+     $doc="../pdf/R".$id.".pdf" ;
      echo"<iframe class='col-lg-6' name='myiframe' type='application/pdf' id='myiframe' src=$doc></iframe>";
   ?>
       
@@ -156,8 +176,27 @@ $row2=mysqli_fetch_assoc($res2);
 
 
 <?php
+if ($row2['plagiarism']!=NULL)
+{
+  echo "<div id='form2'>Plagiarism percentage : <b>$row2[plagiarism] %</b></div><br>";
+}
+if ($row2['plagiarism']==NULL)
+{
+  echo"<div>
+        <form action='viewdoc.php' method='post' id='form2'>
+        <div class='form-group'>
+        <br>
+        Enter plagiarism percentage <br><br>" ;
+    
+        echo "<input type='number' name='pl' class='form-control' min=0 max=100 step='any' >
+        <br>
+        <input type='submit'class='form-control btn btn-info'  value='Proceed'>
+        </div>
+        </form>
+        </div>";
 
-if ($row2['sub1']==NULL)
+}
+else if ($row2['sub1']==NULL)
  {
 
 
@@ -210,6 +249,8 @@ echo"<div>
 }
 
 
+
+
 if ($row2['substatus1']==NULL && $row2['sub1']!=NULL) 
 {
 
@@ -220,15 +261,15 @@ if ($row2['substatus2']==NULL && $row2['sub2']!=NULL)
 
   echo "<div id='form2'><br>Assigned to <b>$row2[sub2]</b></div>";
 }
-if ($row2['Status']==NULL && $row2['substatus1']!=NULL && $row2['sub1']!=NULL) 
+if ($row2['substatus1']!=NULL && $row2['sub1']!=NULL) 
 {
 
   ?>  
   <div>
 
-  <!-- <form class="cf" id="form22"> -->
-    <?php //echo "<br>Reviewer 1: $row2[sub1]"; ?>
-    <?php echo "<br>Status 1:$row2[substatus1]"; ?>
+  
+    <b><?php echo "<br>Reviewer 1:$row2[sub1]"; ?></b>
+    <?php echo "<br>Status 1:$row2[substatus1]"; ?> 
       <div class="jumbotron">
         
   Originality:<?php echo $row2['r11']."   ";?>(In scale of 0-5)<br>
@@ -242,7 +283,7 @@ if ($row2['Status']==NULL && $row2['substatus1']!=NULL && $row2['sub1']!=NULL)
         
           
         </div>
-<!--   </form> -->
+
   
   
 
@@ -255,14 +296,15 @@ if ($row2['Status']==NULL && $row2['substatus1']!=NULL && $row2['sub1']!=NULL)
 }
 
 
-if ($row2['Status']==NULL && $row2['substatus2']!=NULL && $row2['sub2']!=NULL) 
+if ($row2['substatus2']!=NULL && $row2['sub2']!=NULL) 
 {
 
   ?>
 
 
   <form class="cf23" id="form23">
-    <?php //echo "<br>Reviewer 2: $row2[sub2]"; ?>
+  
+     <b><?php echo "<br>Reviewer 1:$row2[sub2]"; ?></b>
     <?php echo "<br>Status 2:$row2[substatus2]"; ?>
     <br>
       <div class="jumbotron">
@@ -283,7 +325,7 @@ if ($row2['Status']==NULL && $row2['substatus2']!=NULL && $row2['sub2']!=NULL)
 
 
 <?php
-if($row2['decision']==NULL && $row2['substatus1']!=NULL && $row2['substatus2']!=NULL)
+if($row2['subdecision']==NULL && $row2['substatus1']!=NULL && $row2['substatus2']!=NULL)
 {
   if($row2['substatus1']=="Accept" && $row2['substatus2']=="Accept")
   {
@@ -297,25 +339,31 @@ if($row2['decision']==NULL && $row2['substatus1']!=NULL && $row2['substatus2']!=
   {
     $decision="Reject";
   }
-  $sqlfinal="UPDATE user SET decision='$decision' WHERE id='$id' ";
+  $sqlfinal="UPDATE user SET subdecision='$decision' WHERE id='$id' ";
   mysqli_query($db,$sqlfinal);
   header("Refresh:0");
 }
-else
+else if($row2["Status"]==NULL)
 {
   
-  echo "<br>Final Decision:".$row2["decision"]."ed";
+  echo "<br>Final Decision:";
   ?>
-    <form class="cf" action="../php/mail.php" method="post" id="form23">
-      <input type="hidden" value="<?php echo $row2['id'] ?>" name ="id">
-        <input type="submit" class="form-control btn btn-danger" value="Mail" id="input-submit">
-      </form>
+
+<form  action="viewdoc.php" method="post">
+<div class="form-group">
+<input type="submit" class="btn bg-success" name="decision" value="Accept">
+<input type="submit" class="btn bg-danger" name="decision" value="Reject">
+<input type="submit" class="btn bg-warning" name="decision" value="Unable to judge">
+</div>
+  
+</form>
 
 
     <?php
 }
 
 }
+
 
 
 
