@@ -64,8 +64,8 @@ require("connect.php");
 			$txt = "Hi $name ,
       The password of the account you requested is '$pass'.
       If you haven't requested please let us know.
-      E Conference a Life";
-			$headers = "From: econferencecon@gmail.com";
+      Racis!8";
+			$headers = "From: racis18@gmail.com";
 
 			if(mail($to,$subject,$txt,$headers))
       {
