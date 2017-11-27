@@ -18,9 +18,21 @@
     {
       header("location:../php/logout.php");
     }
+  
+    require("../php/connect.php");
+    $sql="SELECT * FROM user WHERE trash=1";
+    $res=mysqli_query($db,$sql);
+  
+    echo mysqli_error($db);
+     $row2=mysqli_fetch_assoc($res);
+  
+  
+  
+  
+  
     if(isset($_POST["restoreid"]))
     {
-      require("../php/connect.php");
+ //     require("../php/connect.php");
       $sql1="UPDATE user SET trash=0 WHERE id='$_POST[restoreid]'";
       if(mysqli_query($db,$sql1))
       {
@@ -33,11 +45,34 @@
                 </script>";
       }
     }
+    if(isset($_POST["deleteid"]))
+    {
+   //   require("../php/connect.php");
+      $sql1="DELETE FROM user WHERE id='$_POST[deleteid]'";
+      if(mysqli_query($db,$sql1))
+      {
+        $$filename1 = "../pdf/R".$_POST["deleteid"].".pdf" ;
+        if(file_exists($filename1))
+        {
+          unlink($filename1);
+        }
+        $$filename2 = "../doc/R".$_POST["deleteid"].$_POST["ext"] ;
+        if(file_exists($filename2))
+        {
+          unlink($filename2);
+        }
+        
+        
+          echo "<script>
+                  swal(
+                  'Warning',
+                  'Paper Deleted',
+                  'warning'
+                    )
+                </script>";
+        
+      }
 
-    require("../php/connect.php");
-    $sql="SELECT * FROM user WHERE trash=1";
-    $res=mysqli_query($db,$sql);
-    echo mysqli_error($db);
 
 
 
@@ -121,6 +156,11 @@
           <form action=../php/trashedpapers.php method='post'>
           <input type='hidden' name ='restoreid' value='$id'>
           <input type='submit' class='btn btn-default' value ='Restore' ></form>
+          </td>
+          <td>
+          <form action=../php/trashedpapers.php method='post'>
+          <input type='hidden' name ='deleteid' value='$id'>
+          <input type='submit' class='btn btn-default' value ='Delete' ></form>
           </td>
         </tr>";
          
