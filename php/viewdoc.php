@@ -353,7 +353,7 @@ else if($row2["Status"]==NULL)
 <div class="form-group">
 <input type="submit" class="btn bg-success" name="decision" value="Accept">
 <input type="submit" class="btn bg-danger" name="decision" value="Reject">
-<input type="submit" class="btn bg-warning" name="decision" value="Unable to judge">
+
 </div>
   
 </form>
@@ -361,7 +361,12 @@ else if($row2["Status"]==NULL)
 
     <?php
 }
+if($row2["decision"]!=NULL)
+{
+	echo "Final Decision:";
+	echo "<b>".$row2["decision"]."</b>";
 
+}
 }
 
 
