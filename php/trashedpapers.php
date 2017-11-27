@@ -20,11 +20,8 @@
     }
   
     require("../php/connect.php");
-    $sql="SELECT * FROM user WHERE trash=1";
-    $res=mysqli_query($db,$sql);
-  
-    echo mysqli_error($db);
-     $row2=mysqli_fetch_assoc($res);
+    
+   
   
   
   
@@ -32,7 +29,8 @@
   
     if(isset($_POST["restoreid"]))
     {
- //     require("../php/connect.php");
+  
+  
       $sql1="UPDATE user SET trash=0 WHERE id='$_POST[restoreid]'";
       if(mysqli_query($db,$sql1))
       {
@@ -47,16 +45,20 @@
     }
     if(isset($_POST["deleteid"]))
     {
-   //   require("../php/connect.php");
+      $sql2="SELECT ext FROM user WHERE id='$_POST[deleteid]'";
+      $res2=mysqli_query($db,$sql2);
+      $row2=mysqli_fetch_assoc($res2);
+
       $sql1="DELETE FROM user WHERE id='$_POST[deleteid]'";
       if(mysqli_query($db,$sql1))
       {
-        $$filename1 = "../pdf/R".$_POST["deleteid"].".pdf" ;
+        $filename1 = "../pdf/R".$_POST["deleteid"].".pdf" ;
         if(file_exists($filename1))
         {
           unlink($filename1);
         }
-        $$filename2 = "../doc/R".$_POST["deleteid"].$_POST["ext"] ;
+        $filename2 = "../doc/R".$_POST["deleteid"].".".$row2["ext"] ;
+
         if(file_exists($filename2))
         {
           unlink($filename2);
@@ -74,7 +76,7 @@
       }
 
 
-
+}
 
 
 
@@ -133,6 +135,10 @@
   </thead>
   <tbody>
     <?php
+      $sql="SELECT * FROM user WHERE trash=1";
+      $res=mysqli_query($db,$sql);
+  
+
       if( mysqli_num_rows( $res )==0 )
       {
         echo '<tr><td colspan="4">No Papers Found</td></tr>';
