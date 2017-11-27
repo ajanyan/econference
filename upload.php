@@ -62,7 +62,7 @@ if (is_uploaded_file($_FILES['paper_source']['tmp_name']))
 } 
 
 $sql3="UPDATE user SET Upload='$name' WHERE id='$row[id]'";
-$sql5="UPDATE user SET ext='$name' WHERE id='$ext'";
+$sql5="UPDATE user SET ext='$ext' WHERE id='$row[id]'";
  	mysqli_query($db,$sql3);
     if(mysqli_query($db,$sql5))
     {
@@ -75,8 +75,9 @@ $sql5="UPDATE user SET ext='$name' WHERE id='$ext'";
                     window.location.href ='php/up.php';
                     });
                 </script>";
-    echo mysqli_error($db);
+    
 }
+    echo mysqli_error($db);
 }
 else
 {
