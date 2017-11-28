@@ -1,3 +1,6 @@
+<?php
+header("Access-Control-Allow-Origin:test.racis18.com");
+?>
 <!DOCTYPE html>
 <html>
 <head>
