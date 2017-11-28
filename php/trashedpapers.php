@@ -52,6 +52,9 @@
       $sql1="DELETE FROM user WHERE id='$_POST[deleteid]'";
       if(mysqli_query($db,$sql1))
       {
+         $sql3="ALTER TABLE user AUTO_INCREMENT = 1";
+          mysqli_query($db,$sql3);
+        
         $filename1 = "../pdf/R".$_POST["deleteid"].".pdf" ;
         if(file_exists($filename1))
         {
