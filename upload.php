@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin:test.racis18.com");
+header("Access-Control-Allow-Origin:http://test.racis18.com,http://www.racis18.com");
 ?>
 <!DOCTYPE html>
 <html>
