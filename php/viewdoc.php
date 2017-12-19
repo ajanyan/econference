@@ -304,7 +304,7 @@ if ($row2['substatus2']!=NULL && $row2['sub2']!=NULL)
 
   <form class="cf23" id="form23">
   
-     <b><?php echo "<br>Reviewer 1:$row2[sub2]"; ?></b>
+     <b><?php echo "<br>Reviewer 2:$row2[sub2]"; ?></b>
     <?php echo "<br>Status 2:$row2[substatus2]"; ?>
     <br>
       <div class="jumbotron">
