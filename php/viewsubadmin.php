@@ -7,6 +7,7 @@
   <title>Econference</title>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 </head>
 <body>
@@ -82,27 +83,66 @@ $res=mysqli_query($db,$sql);
         echo '<tr><td colspan="4">No Sub Admins Found</td></tr>';
       }else{
         while($row=mysqli_fetch_assoc($res)){
+        $id=$row["Name"];
+       echo "<tr>
+       <td>{$row['Name']}</td>
+       <td>{$row['Email']}</td>
+       <td><form action=viewsubadmin.php method='post'>
+          <input type='hidden' name ='subid' value='$id'>
+          <input type='submit' class='btn btn-default' value ='Delete' ></form></td>
+       </tr>";
+        }
+       echo "<tr>
+       <td><a href='../php/createsubadmin.php'><button class='btn btn-danger'>Create Reviewer</button></a></td>
+       <td></td>
+       <td></td>
+       </tr>";
 
-       echo "<tr><td>{$row['Name']}</td><td>{$row['Email']}</td></tr>";
+      }
+
+
+
+    if(isset($_POST["subid"]))
+    {
+  
+      $sql1="UPDATE user SET sub1=NULL,r11=NULL,r21=NULL,r31=NULL,r41=NULL,r51=NULL,r61=NULL,
+              r71=NULL,Review1=NULL,substatus1=NULL, subdecision=NULL, decision=NULL WHERE 
+              sub1='$_POST[subid]'";
+      $sql2="UPDATE user SET sub2=NULL,r12=NULL,r22=NULL,r32=NULL,r42=NULL,r52=NULL,r62=NULL,
+              r72=NULL,Review2=NULL,substatus2=NULL, subdecision=NULL, decision=NULL WHERE 
+              sub2='$_POST[subid]'";
+      $sql3="DELETE FROM des WHERE Name='$_POST[subid]'";
+
+      if(mysqli_query($db,$sql1))
+      {
+        if(mysqli_query($db,$sql2))
+        {
+          if (mysqli_query($db,$sql3))
+          {
+            echo "<script>
+                  swal(
+                  'Deleted',
+                  'Reviewer Deleted',
+                  'warning'
+                    ).then(function() {
+                window.location.href ='../php/viewsubadmin.php'; 
+              });
+                </script>";
+          }
+
         }
       }
+    
+    }
+
     ?>
+
   </tbody>
 </table>
 
 </div>
 
 <br>
-
-
-<a href="../php/createsubadmin.php"><button class="btn btn-danger">Create Reviewer</button></a>
-
-
-
-
-
-
-
 
 
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
