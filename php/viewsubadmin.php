@@ -106,10 +106,10 @@ $res=mysqli_query($db,$sql);
     {
   
       $sql1="UPDATE user SET sub1=NULL,r11=NULL,r21=NULL,r31=NULL,r41=NULL,r51=NULL,r61=NULL,
-              r71=NULL,Review1=NULL,substatus1=NULL, subdecision=NULL, decision=NULL WHERE 
+              r71=NULL,Review1=NULL,Status=NULL,substatus1=NULL, subdecision=NULL, decision=NULL WHERE 
               sub1='$_POST[subid]'";
       $sql2="UPDATE user SET sub2=NULL,r12=NULL,r22=NULL,r32=NULL,r42=NULL,r52=NULL,r62=NULL,
-              r72=NULL,Review2=NULL,substatus2=NULL, subdecision=NULL, decision=NULL WHERE 
+              r72=NULL,Review2=NULL,Status=NULL,substatus2=NULL, subdecision=NULL, decision=NULL WHERE 
               sub2='$_POST[subid]'";
       $sql3="DELETE FROM des WHERE Name='$_POST[subid]'";
 
