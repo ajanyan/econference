@@ -113,7 +113,7 @@ p {
   Study of previous works in the domain of work:<?php echo $row2['r41'];?>  (In scale of 0-5)<br>
   Chance of conversion of the method to product/software:<?php echo $row2['r51'];?>  (In scale of 0-5)<br>
   Language  and expressiveness of the article:<?php echo $row2['r61'];?>  (In scale of 0-5)<br>
-  Overall Score:<?php echo $row2['Review2'];?>  (In scale of 0-10)<br>
+  Overall Score:<?php echo $row2['Review1'];?>  (In scale of 0-10)<br>
   Review comment : <?php echo $row2['r71'];?><br>
                     <p class="lead">
             </p>  
