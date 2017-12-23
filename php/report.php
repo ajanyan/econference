@@ -1,6 +1,6 @@
 <?php 
 	$id=$_POST["id"];
-	$db = mysqli_connect( 'localhost' , 'root' ,'','design' ) ;
+	require("connect.php");
 	$sql="SELECT * FROM user WHERE id=$id";
 	$res=mysqli_query($db,$sql);
 	$row=mysqli_fetch_assoc($res);
