@@ -148,9 +148,13 @@ p {
     <div class="col-lg-6">
       <?php 
       echo "<h5>plagiarism:".$row2["plagiarism"]."%"."</h5><br>";
-        echo"<form action='../php/fullview.php' method='post' target='_blank'>
+      echo"<form action='../php/fullview.php' method='post' target='_blank'>
     <input type='hidden' name='id' value='$id'> 
-    <input type='submit' class='btn btn-success' value='View Paper'>  
+    <input type='submit' class='btn btn-success' value='View Paper' style='width:142px' >  
+    </form><br>";
+      echo"<form action='../php/report.php' method='post'>
+    <input type='hidden' name='id' value='$id'> 
+    <input type='submit' class='btn btn-primary' value='Generate Report'>  
     </form>";
 
        ?>
