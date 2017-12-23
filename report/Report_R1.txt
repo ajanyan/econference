@@ -1,0 +1,44 @@
+Script id:R1
+
+
+*** Review1 ***
+
+Originality: 5  (In scale of 0-5)
+
+Relevance to the conference topic:5(In scale of 0-5) 
+
+Significance of the article:3(In scale of 0-5) 
+
+Study of previous works in the domain of work:  2  (In scale of 0-5) 
+
+Chance of conversion of the method to product/software:  2  (In scale of 0-5) 
+
+Language  and expressiveness of the article:  5  (In scale of 0-5) 
+
+Overall Score:10  (In scale of 0-10) 
+
+Review comment :comment1 
+
+
+
+*** Review2 ***
+
+Originality: 3  (In scale of 0-5) 
+
+Relevance to the conference topic:2(In scale of 0-5) 
+
+Significance of the article:5(In scale of 0-5) 
+
+Study of previous works in the domain of work:  5  (In scale of 0-5) 
+
+Chance of conversion of the method to product/software:  5  (In scale of 0-5) 
+
+Language  and expressiveness of the article:  3  (In scale of 0-5) 
+
+Overall Score:9  (In scale of 0-10) 
+
+Review comment :comment2 
+
+
+
+Status:Accept
