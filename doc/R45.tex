@@ -1,0 +1,328 @@
+\documentclass[10pt,a4paper,journal]{IEEEtran}
+\usepackage{graphicx,subfigure}
+%\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\bibliographystyle{IEEEtran}
+\usepackage[numbers]{natbib}
+\renewcommand{\bibfont}{\normalsize}
+
+\usepackage{mathptmx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{algorithm}
+\bibliographystyle{apacite}
+\usepackage{algorithmic}
+
+
+
+\usepackage[T1]{fontenc}
+\renewcommand{\figurename}{\bfseries\fontsize{10}{20}\selectfont \textbf{Figure } }
+
+
+\linespread{1.1}
+%\setlength{\columnsep}{.5em}
+\usepackage[T1]{fontenc}
+%Page Number
+\usepackage{nopageno}
+\usepackage[left=0.75cm,right=0.75cm,top=2cm,bottom=2cm]{geometry}
+\setlength{\columnsep}{2.5em}
+\title{ARTIFICIAL NEURAL NETWORKS - A SURVEY}
+\author{\IEEEauthorblockN{Varuna T V\Mark{1},
+Maya Mohan\Mark{2}, and Sruthy Manmadhan\Mark{3}}\\
+\Mark{1}M.Tech First Year Student,
+\Mark{2}\Mark{,}\Mark{3}Assistant Professor\\
+\IEEEauthorblockA{Department of Computer Science and Engineering,\\
+N.S.S College of Engineering, Palakkad \\
+Email: \Mark{1}varunatv29@gmail.com,
+\Mark{2}mayajeevan@gmail.com,
+\Mark{3}sruthym.88@gmail.com }}
+%{Shell
+%\MakeLowercase{\textit{et al.}}: A Novel Tin
+%Can Link}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
+\begin{abstract}
+An Artificial neural network is an interconnected group of nodes. We are discussing different types of neural networks with its applications. Here bagging neural network is used in the datamining approach to deal with the training samples dynamics and improvising the forecasting accuracy in Wind Power Forecasting. Using Deep Neural Networks a deep learning mechanism for identifying the transportation modes of smart phone users is proposed. The proposed mechanism is evaluated on a database that contains more than one thousand hours of accelerometer, magnetometer, and gyroscope measurements from five transportation modes including still, walk, run, bike, and vehicle. Then we evaluate the ability of RNNs, in particular, the long short-term memory (LSTM) model, to perform land cover classification considering multitemporal spatial data derived from a time series of satellite images. Then we are discussing about an augmented reality question answering system based on ensemble neural networks. This proposes a classification algorithm based on ensemble neural networks. Graph-CNNS defines filters as polynomials of functions of the graph adjacency matrix. We are applying the graph convolution and pooling approaches\\\\
+
+\end{abstract}
+
+\begin{keywords}
+\textit{keywords}-Artificial Neural Networks, Bagging Neural networks, Deep Neural Network, RNN, LSTM, Ensemble Neural Network, Convolutional Neural Network.
+\end{keywords}
+
+\section{Introduction}
+\hspace{2em} Artificial Neural Networks(ANN) is a computing system made up of a number of processing units, which will process information by their state responses to external inputs. The main advantage of neural network is it can actually learn from observing data sets. A neural network consist of an input layer, an output layer and hidden layers as in figure 1.
+
+
+
+
+\hspace{2em} Neural networks take a new way for problem solving than that of conventional computers. Each processing unit will be working in parallel to solve a specific problem. An ANN can create its own organisation or representation of the information it receives during learning time and it has an ability to learn how to do tasks based on the data given for training or initial experience. Each layer in the Neural network will be connected through links having the weights attached to it. using these weights and the given inputs we are calculating the outputs.
+
+\begin{figure}[htbp]
+\begin{center}
+\hbox{\includegraphics[scale=.7]{ann.png}}
+\caption{An artificial neural network}
+\label{4}
+\end{center}
+\end{figure}
+
+\hspace{2em} THis paper is discussing about different types of Neural Networks. Bagging Neural networks is applied in Wind Power Forecasting Systems. Bagging Neural Networks is used to increase the efficiency of the system. The use of smart phones is increasing day by day. So using these smart phones we are finding the transportation mode of the user through Deep Neural networking system. Recurrent neural Networks are used to process multitemporal datas here. The amount of data needed to be processed is increasing day by day. So using Recurrent neural Networks to process these data and their dependencies is a good approach. Using Ensemble neural Network we are implementing a Question Answering system which gives the accurate answers. Bagging method is implemented for ensembling here. This approach increases the accuracy of the system output. Analyzing the graph data has always been a challenge. Using Convolutional Neural Networks we can analyze and process different kinds of data including graph data effectively. This paper is a study regarding the above cases.
+
+\section{Related Works}
+
+\hspace{2em}The idea of ANNs is based on the belief that working of human brain is through connections of processing units and the weights attached to them. From this idea the ANNs is developed which has become the most promising idea. It helps in solving the problems in different approach which results in better outputs and performance \\
+
+ 
+
+
+
+\subsection{Bagging Neural Networks for Wind Power Forecasting\cite{1}}
+\hspace{2em}  Artificial Neural Networks combined with Data mining approaches have been widely used for classification and prediction problems. This paper presents the method which is based on data mining, which consists of the K-means clustering and bagging neural network.Firstly, data preprocessing is conducted on the vector space to clean unreasonable data, normalize the training samples and select the most related variables as the inputs of the neural network. Secondly, data after preprocessing are clustered by the K-means clustering to select the training set which is most similar to the forecasting day. Finally, the wind power is forecasted by the bagging neural network, which is able to alleviate the instability and
+over fitting problems faced by the Back Propagation Neural Networks(BPNN).The procedure includes Data Preprocessing where the input data is cleaned and normalized. Using K-means Algorithm the similar days will be clustered and then they are given to the bagging networks. \\
+
+\hspace{2em} In order to improve the problems of BPNN, ensemble learning
+is applied to optimize the BPNN. Ensemble learning can
+combine several learning modules to enhance the stability and
+forecasting accuracy of the model. Bootstrap aggregating (bagging) algorithm as a kind of ensemble learning methods is used
+to improve the performance of the BPNN. It is verified that
+the bagging-based approach is effective for in-stable learning
+algorithms.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.7]{fig2.png}
+\caption{The process of sampling and training of the bagging algorithm\cite{1}}
+\label{1}
+\end{figure}
+
+
+
+\subsection{Learning Transportation Modes from Smart phone Sensors Based on Deep Neural Network\cite{2}}
+
+\hspace{2em} The importance of user information
+has increased rapidly for context-aware applications. This study
+proposes a deep learning mechanism to identify the transportation modes of smart phone users. The proposed mechanism is
+evaluated on a database that contains more than one thousand
+hours of accelerometer, magnetometer, and gyroscope measurements from five transportation modes including still, walk, run,
+bike, and vehicle.
+
+\begin{figure}[htbp]
+\begin{center}
+\hbox{\includegraphics[scale=.5]{fig3.png}}
+\caption{Flowchart of the proposed DNN-based transportation mode learning
+system\cite{2}}
+\label{4}
+\end{center}
+\end{figure} 
+
+\hspace{2em}The estimation process can be divided into two phases, i.e.,
+offline and online. During the offline phase, feature extraction
+is conducted to integrate sensor data into diversified features
+to train a Deep Neural Network(DNN) model. During the online phase, the proposed
+system transforms testing data to feature vectors, and feeds
+it to the previously trained DNN model to compute the most
+likely transportation mode. Here we are integrating p temporal samples into a frame
+to extract features, and use a slide-moving window with acceptable overlap to smooth data continuity and reduce system
+delay. Given the nine input signals consisting of the present
+value,$s-i$(n), and the past values of order p. As x contains past sensor data of order
+p, the feature parameters reflect the temporal structures of the
+input signal and are regarded as input vectors to train the Deep Neural Network model. A DNN model is a feed-forward artificial neural network
+model that consists of multiple hidden layers. Each hidden
+layer contains several neurons, which are fully connected to
+the neurons in the next hidden layer. Owing to the multiple
+hidden layers, a DNN can effectively characterize complex
+mapping functions between input feature vectors and output
+labels.
+
+\hspace{2em} Another function is placed on top of the L th hidden
+layer to perform classification, for which the softmax function
+was adopted 
+
+
+
+
+\subsection{Land Cover Classification via Multitemporal Spatial Data by Deep Recurrent Neural Networks\cite{3}}
+\hspace{2em} Huge volumes of satellite images time series that can
+be useful to monitor geographical areas through time is produced in modern earth observation programs. RNNs explicitly manage temporal data dependences, since the output of the
+neuron at time $t-1$ is used, together with the next input,
+to feed the neuron itself at time t. The most well-known type of RNN is the LSTM model.
+LSTM models were mainly introduced with the purpose to
+learn long-term dependences, since previous RNN models
+failed in this task due to the problem of vanishing and exploding gradients. The input of the LSTM is a sequence of variables ($x_1$, . . . , $x_N$ ), where a generic element $x_t$ is a feature vector and t refers to the corresponding timestamp. The LSTM unit is composed of two cell states, the memory $C_t$ and the hidden state $h_t$ , and three different gates: input ($i_t$ ) gate, forget ($f_t$ ) gate, and output ($o_t$ ) gate that are employed to control the flow of information. All the three gates combine the current input $x_t$ with the hidden state $h_t−1$ coming from the previous timestamp.\\
+
+\hspace{2em} To perform the classification task, we build a deep architecture stacking together three LSTM units. The use of multiple
+LSTM units, similar to what is commonly done for CNN
+networks combining together several convolutional layers, will allow to extract high-level nonlinear temporal dependences available in the remote sensing time series. The LSTM learns a new representation of the input sequences (in our case objects or pixels time series) but it does not make any prediction by itself. To this end, a SoftMax layer is stacked on top of the last LSTM unit to perform the final multiclass
+prediction. The SoftMax layer has as many neurons as the number of the classes to predict. We choose the SoftMax instead of the sigmoid function, because the value of the SoftMax layer can be seen as a probability distribution over the classes that sum to 1 while each of the sigmoid neurons can output a value between 0 and 1. This is due to the fact that, for
+the SoftMax neuron, the values are normalized per layer while
+no normalization is performed in the case of sigmoid layer.
+This is why, in our context (multiclass prediction), we prefer the SoftMax instead of sigmoid layer, since we know that
+our samples exclusively belong to a single class. From an
+architectural point of view, the connection between the LSTM
+and the SoftMax layer is realized fully connecting the last
+hidden state vector produced by the LSTM unit with the
+SoftMax neurons
+
+\subsection{An Augmented Reality Question Answering System Based on Ensemble Neural Networks\cite{4}}
+\hspace{2em} Classification and prediction processes of data mining can
+be used to indicate important data classes or predict future
+data trends. Therefore, artificial neural network,
+which can process non-linear and complex data even when
+the data are noisy or the data relationship is unknown, is a
+powerful data mining classifier.
+
+\begin{figure}[htbp]
+\begin{center}
+\hbox{\includegraphics[scale=.6]{aaaaaa.png}}
+\caption{The learning cycle of artificial neural network\cite{4}}
+\label{4}
+\end{center}
+\end{figure} 
+\hspace{2em} The proposed algorithm includes two phases: the training
+phase and the testing phase. In the training phase, multiple random ANN models and the corresponding training data
+are generated at first. Those training data are used to train
+ANN models until those ANN models converge. However,
+if a random number of training data include incur overfitting,
+the accuracy of trained ANN models will decline. Thus, those
+models with lower accuracy than the threshold will be filtered
+out, and the remaining highly accurate ANN models will
+be used to predict the output in testing phase. Meanwhile,
+the accuracy of ANN models is presented as a weighting
+value in the testing phase. In the testing phase, the testing
+data are loaded into the remaining ANN models to predict
+the output class. The output values are multiplied by the
+corresponding weighting values of artificial neural network
+models. Then the weighted average of the outputs can be
+obtained. Finally, the predicted output is converted into the
+predicted class. This study designs an augmented reality
+question answering system which can apply and
+implement the proposed algorithm on mobile devices.\\
+
+\subsection{ Robust Spatial Filtering with Graph Convolutional
+Neural Networks\cite{5}}
+\hspace{2em} Convolutional Neural Networks(CNN) has the ability to process different data types. So it is applied in speech recogonition and in graph models. Graph problems are challenging because graph data does not
+have the gridded array structure that image, video, and signal
+data has. Graph model is computed here using filters and pooling techniques. The filter is defined as the kth-degree polynomial of the
+graph$'$s adjacency matrix. Each exponent in the polynomial
+encodes the number of hops from a given vertex that are being
+multiplied by the given filter tap. $A^1$(or A) represents the
+one-hop neighbors of the given vertex. $A^2$, the square of the
+adjacency matrix, represents the two-hop neighbors, and so
+on. To adapt this filtering operation into a convolution operation
+fit for our Graph-CNN, we need to take into account the desire
+to process multiple filters and multiple adjacency matrices per
+sample. To be clear, these vertex filters only change the vertex data.
+The adjacency data is used to help filter the vertices, but
+remains unchanged by the operation.
+
+\begin{figure}[htbp]
+\begin{center}
+\hbox{\includegraphics[scale=.5]{p51.png}}
+\caption{Graph convolution and pooling setting\cite{5}}
+\label{4}
+\end{center}
+\end{figure} 
+\hspace{2em} An important building block of CNNs are pooling layers.
+Reducing dimensions of the input allows convolution filters to
+have a larger receptive field and also improves computation
+performance. One of the most common methods for pooling
+images is max-pooling. This method selects the top value over
+a defined region in a sliding window approach. Pooling methods designed for images are tailored for gridded structures and cannot be applied to general graphs due
+to their often heterogeneous structure. As a solution, we
+introduce a method called graph embed pooling. Graph embed
+pooling learns a convolutional layer whose output can be
+treated as an embedding matrix that produces a fixed-size
+output. There are two advantages to graph embed pooling. First, it
+flexibly takes input of any cardinality or structure and produces
+a fixed size output. This output can be of any cardinality
+N . Second, this pooling is learned, so the output structure
+is the one that represents a reduced-dimension input structure
+in at least a locally optimal way, similar to other embedding
+methods.
+\begin{figure}[htbp]
+\begin{center}
+ \hbox{\includegraphics[scale=.5]{p52.png}}
+\caption{pooling with fixed size output\cite{5}}
+\label{4}   
+\end{center}
+
+
+\end{figure} 
+\section{Discussions and Findings}
+\begin{table}[ht]
+\caption{COMPARISON}
+\centering 
+\begin{tabular}{ccc}
+\hline\hline
+{Type} & {Advantages} & {Disadvantages}\\[0.01ex]
+\hline
+BNN & increases accuracy& determined by voting\\
+DNN & best-in-class performance  & requires large amount of data\\
+RNN & sequence length & difficult to train\\
+ENN & less complex & difficulty in training large input \\
+CNN & accuracy in graph data problems & high computational cost\\[0.1ex]
+\hline
+\end{tabular}
+\end{table}
+\hspace{2em}Artificial Networks of different types support different features. Each neural network has its advantages and disadvantages. 
+Bagging Neural Network\cite{1} has accuracy as the advantage while its drawback is that it is determined through voting which may result in false output too. Deep Neural network\cite{2} has the best-in-class performance and it also require large amount of data and it is a major drawback.  Recurrent Neural Network\cite{3} is very efficient in computing same function over and over again and of any sequence length. But it is difficult to train them. Ensemble Neural Network\cite{4} is an efficient neural network model which combines more than one network and make it more efficient. Since we are using bagging method it is similar to Bagging Neural Network model. It is less complex but it will face difficulty in training large inputs. Convolutional Neural Networks\cite{5} can analyze different input data types and have accuracy in graph data problems. But have high computational cost. Each NNs will be useful based on their features.\\ 
+
+\hspace{2em}We can improve our efficiency by giving large amount of data. The data of various formats and of very large volume. Inventing new data and given it as the input will help in efficient learning. Using a single type of data is efficient only to a certain extent. For increasing the scope of ANN we need to combine various forms to get the desired features from each one model.\\
+
+
+\section{Conclusion}
+\hspace{2em} Artificial Neural Network have the ability to learn from existing data and relationships. So from this they can infer unseen relationships on unseen data. They does not impose any restrictions on the input variables. And most importantly, they have the ability to learn and model non-linear and complex relationships. Each NNs are meeting the requirements of the applications in which they are used. Bagging Neural Networks and Ensemble Neural Networks meets the purpose of combining existing data and learn from it. Deep Neural Networks and Recurrent Neural Networks can infer unseen relationships by deep learning techniques and inputing the output from the previous outputs respectively. And Convolutional Neural Networks are dealing various kinds of inputs and analyzing them. 
+
+
+
+
+ \bibliographystyle{plain}
+\begin{thebibliography}{15}
+\bibitem{1} Wenbin Wu \& Mugen Peng,(2017), "A Data Mining Approach Combining K-Means Clustering with Bagging Neural Network for Short-term Wind Power Forecasting", IEEE Internet of Things Journal, vol. 4, Issue. 4, PP. 979 - 986.
+\bibitem{2}  Shih-Hau Fang,Yu-Xaing Fei, Zhezhuang Xu, \& Yu Tsao,(2017), "Learning Transportation Modes from Smartphone
+Sensors Based on Deep Neural Network", IEEE Sensors Journal, vol. 17, Issue. 18, PP. 6111 - 6118.
+\bibitem{3}Dino Ienco, Raffaele Gaetano, Claire Dupaquier, \& Pierre Maurel,(2017), "Land Cover Classification via Multitemporal Spatial
+Data by Deep Recurrent Neural Networks",  IEEE Geoscience and Remote Sensing Letters , vol.14, Issue. 10,PP. 1685 - 1689.
+\bibitem{4} Chi-Hua Chen, Chen-Ling Wu, Chi-Chum Lo \& Feng-Jang Hwang,(2017), "An Augmented Reality Question Answering
+System Based on Ensemble Neural Networks", IEEE Access, Vol. 5, PP. 17425 - 17435.
+\bibitem{5} Felipe Petroski Such, Shagan Sah, Miguel Dominguez, Suhas Pillai, Chao Zhang, Andrew Michael, Nathan D. Cahill \& Raymond Ptucha, "Robust Spatial Filtering with Graph Convolutional Neural Networks",  IEEE Journal of Selected Topics in Signal Processing, Vol. 11, Issue . 6, PP. 884 - 896.
+\bibitem{6}L. Ma, S. Y. Luan, C. W. Jiang, H. L. Liu, and Y. Zhang,(2009), "A review
+on the forecasting of wind speed and generated power", Renew. Sust.
+Energy Rev., vol. 13, no. 4, pp. 915-920.
+\bibitem{7}K. Bhaskar \& S. N. Singh,(2012), "AWNN-assisted wind power forecasting
+using feed-forward neural network", IEEE Trans. Sustain. Energy, vol.
+3, no. 2, pp. 306-315.
+\bibitem{8}S.-H. Fang, H.-H. Liao, Y.-X. Fei, K.-H. Chen, J.-W. Huang, Y.-D.
+Lu, \& Y. Tsao,(2016), "Transportation modes classification using sensors on
+smartphones", Sensors, vol. 16, no. 1324.
+\bibitem{9}K. Greff, R. K. Srivastava, J. Koutnik, B. R. Steunebrink, \&
+J. Schmidhuber,(2015), "LSTM: A search space Odyssey", CoRR.
+\bibitem{10}A. Graves, A.-R. Mohamed, \& G. Hinton,(2013), "Speech recognition with
+deep recurrent neural networks", in Proc. ICASSP, pp. 6645–6649.
+\bibitem{11}L. Hirschman \& R. Gaizauskas,(2001), "Natural language question answering:
+The view from here", Natural Lang. Eng., vol. 7, no. 4, pp. 275–300.
+\bibitem{12} J. Bruna, W. Zaremba, A. Szlam, \& Y. LeCun,(2013), "Spectral networks and
+locally connected networks on graphs", arXiv preprint arXiv:1312.6203.
+\bibitem{13}M. Henaff, J. Bruna, \& Y. LeCun,(2015), "Deep convolutional networks on
+graph-structured data", arXiv preprint arXiv:1506.05163.
+\bibitem{14} A. Sandryhaila \& J. M. Moura,(2013), "Discrete signal processing on graphs",
+Signal Processing, IEEE Transactions on, vol. 61, no. 7, pp. 1644-1656.
+\bibitem{15}S. Ioffe \& C. Szegedy,(2015), "Batch normalization: Accelerating deep
+network training by reducing internal covariate shift", arXiv preprint
+arXiv:1502.03167.
+
+
+
+
+
+
+\end{thebibliography} 
+
+\end{document}
+

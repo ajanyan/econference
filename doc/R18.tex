@@ -1,0 +1,380 @@
+\documentclass[10pt,a4paper,journal]{IEEEtran}
+\usepackage{graphicx,subfigure}
+%\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\bibliographystyle{IEEEtran}
+\usepackage[numbers]{natbib}
+\renewcommand{\bibfont}{\normalsize}
+
+\usepackage{mathptmx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{algorithm}
+\bibliographystyle{apacite}
+\usepackage{algorithmic}
+
+
+\newcommand\Mark[1]{\textsuperscript#1}
+\usepackage[T1]{fontenc}
+\renewcommand{\figurename}{\bfseries\fontsize{10}{20}\selectfont \textbf{Figure } }
+
+
+\linespread{1.1}
+%\setlength{\columnsep}{.5em}
+\usepackage[T1]{fontenc}
+%Page Number
+\usepackage{nopageno}
+\usepackage[left=0.75cm,right=0.75cm,top=2cm,bottom=2cm]{geometry}
+\setlength{\columnsep}{2.5em}
+\title{IMAGE COMPRESSION - A SURVEY}
+\author{\IEEEauthorblockN{Freceena Francis\Mark{1},
+Maya Mohan\Mark{2}, and Sruthy Manmadhan\Mark{3}}\\
+\Mark{1}M.Tech First Year Student,
+\Mark{2}\Mark{,}\Mark{3}Assistant Professor\\
+\IEEEauthorblockA{Department of Computer Science and Engineering,\\
+N.S.S College of Engineering, Palakkad \\
+Email: \Mark{1}freceena111@gmail.com,
+\Mark{2}mayajeevan@gmail.com,
+\Mark{3}sruthym.88@gmail.com }}
+%\markboth{Department of Computer Science \& Engineerinng,~December,~2013}{}
+
+%{Shell
+%\MakeLowercase{\textit{et al.}}: A Novel Tin
+%Can Link}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
+\begin{abstract}
+Image compression is a type of  compression that is  applied to digital images reduce their cost for storage or transmission. Algorithms may take advantages such as visual perception and the statistical properties of image data to provide superior results compared with generic compression methods. To compress SAR image, an adaptive compression method is used. Another algorithm for image compression is that which is incorporated with compressive sensing theory and the sparse representation can be considered as an encrypted version of the image.For wireless capsule endoscopy, near-lossless energy-efficient image compression algorithm is used.  Another application of image compression is secure image deduplication. Fractal image compression is an innovative way of image representation by using relationships among the sub-section of image itself. It is based on feature extraction and image comparison.
+\end{abstract}
+\begin{keywords}
+SAR image, Fractals, SPIHT, Sparse represenattion
+\end{keywords}
+
+\section{Introduction}
+\hspace{2em} Image compression is the task of  minimizing the size in bytes of a graphics
+file without degrading the quality of the image to an unacceptable level. The reduction in file
+size by compression allows more images to be stored in a given amount of disk or memory space. It also reduces the time required for images to be sent over the Internet or downloaded from Web pages.
+
+\hspace*{2em} Image compression can be a lossy or lossless compression. Lossless compression is preferred for medical imaging, technical drawings, clip art, or comics. Lossy
+compression methods introduce compression artifacts.
+Lossy methods are  suitable for natural images such as photographs in applications
+where minor loss of fidelity is acceptable to achieve a substantial reduction in bit rate. Lossy compression that produces negligible differences is called as
+visually lossless.
+
+\hspace*{2em} There are many different ways in which image files can be compressed. For
+Internet use, the two most common compressed graphic image formats are the JPEG format and
+the GIF format. The JPEG method is  often used for images, while the GIF method is
+commonly used for line art and other images in which geometric shapes are relatively simple.
+
+\hspace*{2em} Other techniques for image compression are the use of fractals and
+wavelets. These methods have not gained widespread acceptance. However, both methods offer more future in compressing images because they offer higher compression
+ratios than that of JPEG or GIF methods. Another new method that may replace the GIF format is the PNG format.
+
+\hspace*{2em} The best image quality at a given bit-rate (or compression rate) is the main goal of image compression, however, there are other important properties of image compression schemes such as scalability, Region of interest coding, Meta information, Processing power.The quality of a compression method is often  measured by the Peak signal-to-noise ratio. It
+measures the amount of noise introduced through a lossy compression of the image, however,
+the subjective judgement of the viewer also is regarded as an important measure, perhaps, being
+the most important measure.
+\section{RELATED WORKS}
+
+\hspace{2em}    Synthetic Aperture Radar (SAR)\cite{1} is a remote sensing imaging system that works at the high resolution in microwave band, which can actively transmit microwave, actively receive microwave and use signal processing method for imaging. It is of great significance to suppress speckle noise effectively in the process of image compression to improve the quality of SAR image. For this purpose an adaptive SAR image compression algorithm is used. \\
+    \hspace*{2em}  Another algorithm for image compression is that which is incorporated with compressive sensing theory based on sparse representation of the original image is obtained with an overcomplete fixed dictionary that the order of the dictionary atoms is scrambled, and the sparse representation can be considered as an encrypted version of the image. To enhance the security of the algorithm, a pixel-scrambling method is used.\\
+    \hspace*{2em} For wireless capsule endoscopy near-lossless energy-efficient image compression algorithm is used. The designed compressor operates directly on data from CMOS image sensor with the BayerColor Filter Array (CFA). By optimal combining transform-based coding with predictive coding, the pro-posed compressor achieves higher average image quality and lower bit rate as compared to significantly more complex JPEG-LS based coding schemes.\\
+   \hspace*{2em} Another application of image compression is secure image deduplication. Data deduplication has become a central approach for Cloud Storage Providers (CSPs) since it allows them to remove the identical data from their storages successfully. Currently, images are among the most common shared types of data found on cloud storages. It consists of embedding a partial encryption and a unique image hashing into the Set Partitioning In Hierarchical Trees (SPIHT) compression algorithm.\\
+    \hspace*{2em} Fractal image compression is an innovative way of image representation by using relationships among the sub-section of image itself. It utilizes the existence of self-symmetry and uses affine contractive transforms. It is based on feature extraction and image comparison.
+    
+\subsection{Wavelet dictionary learning}
+\hspace*{2em}  Different from DCT\cite{2}, the wavelet transform has good time-frequency characteristics. By means of scaling and translation, multi-scale analysis can be performed on the image, and the wavelet transform has been widely used in the field of image processing. The wavelet domain image compression is considered to be one of the best image compression algorithms. In SAR image compression, orthogonal wavelet transform is used to construct the atoms of the dictionary database because the orthogonal wavelet multi-resolution analysis of the image does not contain redundant information, and the decomposition coefficients between different resolutions are not related.\\
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{fig/wavelow.png}
+\caption{Low frequency coeffients \cite{1}}
+\end{figure}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{fig/wavehigh.png}
+\caption{High frequency coeffients\cite{1}}
+\end{figure}
+Wavelet decomposition of the image is two-dimensional discrete wavelet transform (2D-DWT)as shown in Figure 1 and Figure 2. In the transformation of each layer, the inner product will be the original image with a wavelet basis. After sampling in the horizontal and vertical direction, the image is decomposed into 1/4 four size images including an approximation sub image, and three detailed sub images in horizontal, vertical and diagonal direction.  SAR image forms seven different frequency subbands after two-layer wavelet decomposition, including a low frequency subband and six high frequency subbands. The low frequency subband  contains the main energy information of the image and is not sparse, this method reserves all the low frequency coefficients. For the other 6 high frequency subbands, the plots show a sharp peak at zero coefficient amplitude and an extended tail to either side of the peak, indicating that the high frequency coefficients are sparse after the wavelet transform, most coefficients are close to zero, and the high frequency coefficients show a trend of non-Gaussian distribution in the wavelet domain. So this method remains 6 different training sample sets to generate 6 dictionaries according to their own wavelet coefficients. At the same time, the noise information locates in the high frequency coefficients which leads to sparsity decreasing of the high frequency coefficients. If we adopt sparse optimization model to compress SAR image, it can suppress the speckle noise of the high frequency subbands.
+The wavelet domain dictionary learning algorithm is described as follows. \\
+\begin{enumerate}
+\item Input the training sample image.
+\item Divide the training sample image into sub images with $ m \times m $ size. Each sub image is transformed with two-layer wavelet transform and forms seven subbands totally. \cite{3} The combination of wavelet coefficient of all high frequency subbands forms the training sets. There are 6 training samples $Y_{r}$ ( r = 1, 2,....6). 
+\item  Initialize the dictionary $D_{r}$ ( r = 1, 2,...6).
+\item  Update 6 different frequency dictionaries $D_{r}$( r = 1, 2,....6).
+\end{enumerate} 
+
+\subsection{Analysis sparse model}
+\hspace*{2em} For a signal x $\epsilon$ $R^{N \times 1}$, the analysis sparse model is shown using Eqn. (1)\cite{4} below,\\
+\begin{equation}
+l = P - \left \| \Omega x \right \|_{0}
+\end{equation}
+where $\Omega$ is the analysis  dictionary or operator, \textit{l} is the cosparsity.The analysis sparse model for x could be rewritten as in Eqn. (2)\cite{4}\\
+\begin{equation}
+z = \Omega x
+\end{equation}
+where z is the analysis representation\cite{4} of x with \textit{l} co-sparsity.
+
+\subsection{Compressive sensing}
+\hspace*{2em} The compressive sensing\cite{5} could be employed to re-encrypt z and reduce its
+dimension simultaneously by projecting z onto a measurement matrix using Eqn. (3)\cite{4} and Eqn. (4)\cite{4}.
+\begin{equation}
+\phi \epsilon R^{M×P}
+\end{equation}
+\begin{equation}
+y = \phi z = \phi \Omega x
+\end{equation}
+where y is the measurements of the compressive sensing.\\
+To recover x from y, the following optimization Eqn. (5)\cite{4} should be employed:
+
+\begin{equation}
+y = \theta x
+\end{equation}
+where $ \theta = \phi \Omega$ is a M $ \times $ N matrix.
+
+\subsection{Logistic map}
+\hspace*{2em}Logistic map is often used in the image encryption algorithms \cite{} since
+its pseudo-randomness and sensitivity to its initial value. It can be defined as in Eqn.(6)\cite{4}
+\begin{equation}
+f_{t+1} = \mu f_{t}(f_{t} + 1) f_{t} \epsilon (0,1)
+\end{equation}
+
+\subsection{Spatial decorrelation}
+Incoming pixels, from the CFA image sensor, are grouped into 4-elements vectors as in Eqn.(7)\cite{8}\\
+\begin{equation}
+\textbf{x}=[x_{0},x_{1},x_{2},x_{3}]^{T}
+\end{equation}
+Resulting vectors are DCT transformed and quantized as in Eqn. (8)\cite{8}
+\begin{equation}
+\textbf{X}=[X_{0},X_{1},X_{2},X_{3}]^{T}
+\end{equation}
+
+Values of DC\cite{6}, necessary for prediction operation\cite{7}, are stored in a dual-port memory (DC-MEM). This memory has 3(C/2)/4 words,where C/2 is the number of pixels of the same color in a single CFA image line. The word width of DC-MEM is 8-bit only, which is sufficient for images with 8-bit pixels precision, when q $\geq$ 4.
+
+\subsection{Entropy encoding}
+\hspace*{2em} Entropy encoder transforms the quantized AC coefficients and \cite{8} DC prediction residuals dDC into compressed data bitstream. The effectiveness of this stage strongly influences the final compression ratio. Golomb-Rice algorithm is used for this. Entropy encoder outputs variable-length codewords, which are aligned, packed and temporarily stored in FIFO by the barrel shifter(BSH). The complexity of a barrel shifter of width n is O(n log n). So,to reduce silicon area and power dissipation, the maximum length of generated codewords should be strictly limited.
+
+\subsection{SPIHT compression algorithm}
+\hspace*{2em} The SPIHT algorithm  is used for image compression since it can produce an embedded bit stream from which the best images can be reconstructed. Due to the fact that the SPIHT compression algorithm
+is independent of any keys or other form of user input, it is suitable for deduplication \cite{9} since it meets the requirement
+that identical images compressed by different users should appear identical in the compressed or encrypted form to the CSP so that the similarity can be identified.\\
+\hspace*{2em} The SPIHT algorithm is based on the fact that there is a correlation
+between the coefficients that are in different pyramid (bands) levels of the hierarchy of the underlying structure. It maintains this information in the zero trees by grouping insignificant
+coefficients together. Typically, each 2$\times$2 block of
+coefficients in the root level of this tree structure corresponds to further trees of coefficients. 
+
+\subsection{Partial encryption of compressed image}
+\hspace*{2em} Compressed image needs to be partially encrypted\cite{10} before uploading it
+in the cloud storage. The reason for doing so is to ensure the
+security of the data from the CSP or any malicious user. In order to satisfy the basic requirement of cross
+user deduplication,  use a convergent encryption to encrypt the coefficients generated by the SPIHT\cite{11} algorithm since such scheme will allow the CSP to classify the identical compressed and encrypted images.\\
+\hspace*{2em} Typically, the output of the SPIHT compression algorithm is a stream of encoded wavelet coefficients along with the
+zerotrees for the structure of the coefficients. Thus, to correctly decompress the
+image, the decompression algorithm must infer the significant
+bits accurately. In this regard, only the significant information be encrypted.
+This information is determined by the significant information of the pixels in the highest two levels of the pyramid as well as in the initial threshold for the SPIHT algorithm.
+ Thus the image will be prevented from being decompressed by the CSP. \\
+ 
+ \hspace*{2em} The user constructs an SHA-3 hash of the significant information \textit{SigInfo} of the coefficients belonging to the highest two levels
+of the pyramid and uses it as the key for encryption as in Eqn. (9)\cite{9}, i.e.,
+\begin{equation}
+ImageKey (IK) = SHA - 3_{H}ash(SigInfo)
+\end{equation}
+
+\hspace*{2em} Using this key, the users will perform symmetric encryption on the significant information as in Eqn. (10)\cite{9}
+\begin{equation}
+SigInfo' = (IK, SigInfo)
+\end{equation}
+
+This way, the CSP will be able to determine the match between identical images from different users without having to process the images in plaintext form.
+
+\subsection{Image hashing}
+\hspace*{2em} In order
+for the CSP to perform client side deduplication on the image,
+there has to be a unique identity (referred to as image hash)
+for each image. This step consists of generating such image
+hash.The image hash is generated by the user and sent to the
+CSP for performing the client side deduplication. In case of a
+redundant image, the CSP will only set the pointers of the image
+ownership to the new user and will not request the image to
+be sent again. Using this hash, the CSP will be able to identify
+and classify the identical images without the necessity to
+possess the original image in plaintext format. Indeed, the CSP
+will need to scan through the already stored hashes in the cloud
+storage to find the matches rather than scanning the entire
+images. By doing so, the CSP will be
+able to remove the redundant images and store only a single
+unique copy of the image.\\
+\hspace*{2em}  The binary hash sequence (where 1 denotes a significant coefficient and 0 denotes a non significant coefficient) is then designed based on the significance map and on the fact that the first four highest pyramid levels under the first three thresholds are more than enough to be used as the signature of the image. 
+\subsection{Average image formation}
+\hspace*{2em} In this technique\cite{12} first an average image $ \bar{A} $ is computed, which is equal to the average of all range images as in Eqn.(11)\cite{13}
+\begin{equation}
+\bar{A} = \frac{1}{R} \sum_{i=1}^{R} R_{i}
+\end{equation}
+
+The Average image $\bar{A}$ is used as intermediate block for comparison.
+\subsection{Feature extraction}
+\hspace*{2em} In this method, the whole system is transformed from image domain to vector domain by forming a vector corresponding to
+all subimages\cite{13} i.e. $R_{i}$, $D_{j}$ and $\bar{A}$. Here four features of images have
+been extracted to characterize the image:
+\begin{itemize}
+\item mean (m)
+\item  standard deviation (sd)
+\item skewness (sk) 
+\item kurtosis (ku)
+\end{itemize}  
+\hspace*{2em} Feature vector corresponding
+to all image blocks are formed with the help of
+extracted features.\\
+\begin{equation}
+\textbf{Range feature vector} =  f_{R}(i) =  \left [ m_{Ri}, sd_{Ri}, sk_{Ri}, ku_{Ri} \right ]
+\end{equation}
+\begin{equation}
+\textbf{Domain feature vector} =  f_{D}(i) =  \left [ m_{Dj}, sd_{Dj}, sk_{Dj}, ku_{Dj} \right ] 
+\end{equation}
+\begin{equation}
+\textbf{Average feature vector} =  f_{\bar{A}}(i) = \left [ m_{\bar{A}}, sd_{\bar{A}}, sk_{\bar{A}}, ku_{\bar{A}} \right ] 
+\end{equation}
+
+\hspace*{2em} At the end of feature extraction part: R range feature vectors, D domain feature vectors and one average feature vector have been formed using Eqns. (12),(13),(14)\cite{13}. Further, comparison of RBs and DBs is performed on vector level rather than on individual pixels. Difference computation
+between two vectors will be much simpler and faster as compared to the computations at image level. Average feature vector is used as an intermediate entity and no information related to this is conveyed to the decoder through fractal codes.
+\subsection{Domain code-book generation}
+\hspace*{2em} Domain code-book\cite{14} of proposed method is similar to the codebook of vector quantization \cite{13}. For generation of domain code-book all domain feature vectors are compared with average feature vector one by one. In this process distance function $\psi(f_{Dj},f_{\bar{A}})$ between them is computed using Eqn. (15)\cite{13}.
+\begin{equation}
+\psi(f_{Dj},f_{\bar{A}}) = d(f_{Dj},f_{\bar{A}}) ; where j = 1,2,...., D.
+\end{equation}
+
+\hspace*{2em} In the proposed method Euclidian distance  has been used as difference metric (d). This process returns D difference values
+as a result of D number of comparisons at vector level. These difference
+values stored in an error space, called as domain code book. For domain code book, we have used array, the simplest way of storing a series of elements of the same type.
+
+
+\subsection{Nearest Neighbour Searching}
+\hspace*{2em} Final stage of speedup method is the application of nearest neighbor searching\cite{15} in previously formed domain code
+book. Here the SDB for every range image is searched. The first
+range feature vector is compared with average feature vector and
+the Euclidian distance between them is computed.
+\hspace*{2em} This distance $\psi(f_{Dj},f_{\bar{A}})$  is used as search key and nearest neighbor
+search is applied in domain code book. The DB corresponding to the nearest error value shows maximum similarity with the first RB. This process is repeated for all the RBs. At the end of
+this stage, a SDB for every RB is identified. In this part, difference is computed R number of times.
+
+ Every RB is compared with all the DBs and approximation error between them is stored for each RB hence comparisons are performed R$\times$D number of times.
+ \hspace*{2em} Approximation errors are stored and search for least error is done for every RB i.e. R
+number of times. In this method domain feature
+vectors are compared with average feature vector and each range feature vector is compared once with average feature vector resulting R + D comparisons. The approximation error between $f_{\bar{A}}$ and domain feature vectors has been saved once and the searching is done with different search keys in the same error space for every RB. The total number of image block comparisons involved in proposed
+compression process are $8 \times (R + D)$. Along with this, most of the comparisons in this method are done on vector level
+instead of image level, hence complexity as well as amount of computation
+involved with SDS have been reduced by significant
+amount. Although some overheads are associated in feature vector
+formation but overall time expenditure has been reduced
+significantly.
+
+
+
+
+
+
+
+
+
+
+\section{DISCUSSION AND FINDINGS}
+\hspace{2em}  \hspace*{2em} In this section different image compression techniques are compared and analyzed as shown in Table I. Image compression is mainly classified into two subcategories namely lossy compression and lossless compression. Here, in this section different techniques are classified based on this subdivision. Lossless allows all the original data to be recovered whenever the file is uncompressed again. Whereas, lossy compression eliminates all the unnecessary bits to make it smaller when compressed. SAR image uses lossy compression since it can reduce speckle noise in the image, thus removing unnecessary bits. Hybrid algorithm that composed of two operations (compression \& encryption) brought about more security and can also withstand several attacks. Compression in  WCE is an area that is widely used in medical field. And the compression brought about higher image quality and throughput. Image deduplication uses a lossless compression technique that removes redundant images from cloud. FIC uses lossy compression technique.
+		
+\begin{table}[htbp]
+\caption{Comparison}
+\begin{tabular}{c|c|c}
+\hline 
+METHOD & COMPRESSION & FEATURES\\
+\hline 
+\rule[-1ex]{0pt}{2.5ex} SAR image & Lossy & Noise suppression, Confidentiality\\
+\rule[-1ex]{0pt}{2.5ex} Hybrid algorithm & Lossless &  Stands against chosen plaintext attack\\
+\rule[-1ex]{0pt}{2.5ex} WCE	&	Lossless 	&   Higher image quality, high throughput	\\
+\rule[-1ex]{0pt}{2.5ex} Deduplication	&   Lossless 	&	Security	\\
+\rule[-1ex]{0pt}{2.5ex} FIC	& Lossy & High compression ratio\\
+\hline 
+\end{tabular}
+\label{av}
+
+		\end{table}
+		
+\hspace*{2em} SAR images are used in military services so we could include image encryption techniques used in "A novel image compression-encryption hybrid algorithm based on the analysis sparse representation". Thus it provides more confidentiality so that outside attackers could not get into the military details of our country.
+%\begin{figure}[htbp]
+%\begin{center}
+%\hbox{\includegraphics[scale=.5]{fig/1.png}}
+%\caption{neurosynaptic core}
+%\label{3}
+%\end{center}
+%\end{figure}
+%\begin{equation}
+%A_{j}(t) \times W_{ij} \times S_{i}^{G^{j}} 
+%\end{equation}
+%\hspace{2em} Figure {\ref{5}}
+% show an illustrative example of three inter and intra connected
+%functional regions. In our example,
+%three processes manage each of the functional regions A
+%and C, and two processes manage functional region B. For
+%illustration clarity  presents only connections of process 0
+%(in region A) and of process 3 (in region B) to region C. The
+%thickness of the edges between processes reflects the strength
+%of the connection; thicker connections represents more neuron
+%connections.
+
+\section{CONCLUSION}
+\hspace{2em} Image compression is a way of  minimizing the size  of  graphics file without degrading the quality of an image to an unacceptable level. The reduction in file size has allowed more images to be stored in a given amount of disks or memory space. It also reduces the time required for images to be uploaded to the Internet or downloaded from Web pages. We can also
+compress the encrypted images to bring more security in them. The image compression technique can
+also be used in medical purposes such as endoscopy. Image compression is also used to avoid
+duplication of images. And fractal image can be compressed efficiently.
+
+\begin{thebibliography}{8}
+	
+\bibitem{1}    XiuXia Ji, Gong Zhang, 2016, "An adaptive SAR image compression method", \textit{Computers and Electrical Engineering(
+ELSEVIER)}, Vol 7, Issue 2, pp 1-12.
+
+\bibitem{2} Fan L , Zhang Y , Zhou Z , Semanek DP , Wang S , Wu L, 2010, "An improved image fusion algorithm based on wavelet decomposition",\textit{ J Converg Inf Technol}, Volume 5, Issue 10, pp 15-21 .
+
+\bibitem{3} Aharon M , Elad M , Bruckstein A, 2006, "K-SVD: an algorithm for designing overcomplete dictionaries for sparse representation", \textit{IEEE Trans Signal Process}, Vol 54, Issue 11, pp 4311-22 .
+
+
+\bibitem{4}  Ye Zhang, Biao Xu, Nanrun Zhou, 2017, "A novel image compression-encryption hybrid algorithm based on the analysis sparse representation", \textit{Optics Communications(ELSEVIER)}, Vol 392, pp 223-233.
+
+\bibitem{5}D.L. Donoho, 2006, "Compressed sensing",\textit{ IEEE Trans. Inf. Theory}, Vol 52, Issue 4, pp 1289-1306. 
+
+\bibitem{6}G. Iddan, G. Meron, A. Glukhovsky, P. Swain, 2000, "Wireless capsule endoscopy", \textit{Nature}, Vol 405, pp 417-418.
+
+\bibitem{7} C.C. Koh, J. Mukherjee, S.K. Mitra,  2003, "New efficient methods of image compression in digital cameras with color filter array", \textit{IEEE Trans. Consum.Electron}, Vol 49, Issue 4, pp 1448-1456.
+
+\bibitem{8} Pawe Turczaa, Mariusz Duplaga, 2017, "Near-lossless energy-efficient image compression algorithm for wireless capsule endoscopy",\textit{ Biomedical Signal Processing and Control(ELSEVIER)}, Vol 38, pp 1-8.
+
+\bibitem{9} Fatema Rashid, Ali Miri, Isaac Woungang, 2015, "Secure image deduplication through image compression", \textit{journal of information security and applications(ELSEVIER)}, Vol 27, pp 54-64.
+
+\bibitem{10} Cheng H, Xiaobo L, 2000, "Partial encryption of compressed images and
+videos", \textit{IEEE Trans Sign Proc}, Vol 48, Issue 8, pp 2439-51.
+
+\bibitem{11} Rengarajaswamy C, Rosaline SI, 2013, "SPIHT compression on encrypted
+images", \textit{Proc. of IEEE Conference on Information \& Communication Technologies (ICT)}, pp 336-41.
+
+\bibitem{12} Vijayshri Chaurasia, Ajay Somkuwar,  2009, "Speed up technique for fractal image compression",\textit{ IEEE International Conference on Digital Image Processing}, pp 319-324.
+
+\bibitem{13} Vijayshri Chaurasia , Vaishali Chaurasia, 2016, "Statistical
+feature extraction based technique for fast fractal image
+compression",\textit{ Journal of Visual Communication and Image
+Representation(ELSEVIER)}, Vol 41, pp 87-95.
+
+\bibitem{14} Vijayshri Chaurasia, Ajay Somkuwar, 2010, "Approximation error based suitable domain search for fractal image compression",\textit{ Int. J. Eng. Sci. Technol}, Vol 2, Issue 2, pp 104-108.
+
+\bibitem{15} A.N. Papadopoulos, Y. Manolopoulos, 2005, "Nearest Neighbour Search", \textit{•}.
+
+
+\end{thebibliography}
+	
+
+
+
+\end{document}
+
