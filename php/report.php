@@ -1,29 +1,54 @@
 <?php 
+
+
 	session_start();
 	require("../php/connect.php");
-  
+
 	if(!isset($_SESSION["user"] ) && !isset($_SESSION["email"]))
 	{
     	header("location:../index.php");
-  }
-  elseif ($_SESSION["role"]!="admin")
-  {
-      header("location:../php/logout.php");
-  }
-  elseif (!isset($_POST['id']))
-  {
-    	header("location:../index.php");
-   }
+  	}
+  	elseif ($_SESSION["role"]!="admin")
+  	{
+    	header("location:../php/logout.php");
+  	}
+	elseif (!isset($_SESSION["reportid"]))
+	{
+    	if (!isset($_POST['id']))
+    	{
+          header("location:../index.php");
+    	}
 
+   	}
+    if(isset($_POST['id']))
+    {
+      $id=$_POST['id'];
+      $_SESSION['reportid']=$id;  
+    }
+    else
+    {
+      $id=$_SESSION['reportid'];
+      
+    }
 
+	$filename="../report/Report_R".$id.".txt";
+    if(file_exists($filename))
+	{
+		header('Content-Type: application/octet-stream');
+	    header('Content-Disposition: attachment; filename='.basename($filename));
+	    header('Expires: 0');
+	    header('Cache-Control: must-revalidate');
+	    header('Pragma: public');
+	    header('Content-Length: ' . filesize($filename));
+	    readfile($filename);
+	    exit;
+	}
 
-	$id=$_POST["id"];
 	$sql="SELECT * FROM user WHERE id=$id";
 	$res=mysqli_query($db,$sql);
 	$row=mysqli_fetch_assoc($res);
 	if($row["decision"]!=NULL)
 	{
-		$filename="../report/Report_R".$_POST["id"].".txt";
 	if(!file_exists($filename))
 	{ 
 
@@ -54,29 +79,20 @@ Status:$row[decision]";
 		echo $data;
 		fwrite($myfile, $data);
 		fclose($myfile);
+		header("Location:report.php");
 
 
 	}
 
-if(file_exists($filename))
-{
+
+	}
+
+
 	
-	  header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.basename($filename));
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($filename));
-    readfile($filename);
-    exit;
-}
-
-
-	}
-
-
-
  ?>
+
+
+<!DOCTYPE html>
 <html>
 <head>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
@@ -100,6 +116,11 @@ if(file_exists($filename))
                 </script>";
 	}
  ?>
+
+
+
+
+
 
 </body>
 </html>
