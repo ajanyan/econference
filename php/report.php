@@ -1,6 +1,25 @@
 <?php 
+
+
+	session_start();
+	require("../php/connect.php");
+
+	if(!isset($_SESSION["user"] ) && !isset($_SESSION["email"]))
+	{
+    	header("location:../index.php");
+  	}
+  	elseif ($_SESSION["role"]!="admin")
+  	{
+    	header("location:../php/logout.php");
+  	}
+  	elseif (!isset($_POST['id']))
+   	{
+    	header("location:../index.php");
+    }
+
+
+
 	$id=$_POST["id"];
-	require("connect.php");
 	$sql="SELECT * FROM user WHERE id=$id";
 	$res=mysqli_query($db,$sql);
 	$row=mysqli_fetch_assoc($res);
