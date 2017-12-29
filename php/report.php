@@ -80,7 +80,7 @@ if(file_exists($filename))
                   'Please complete the review and generate report again',
                   'warning'
                     ).then(function() {
-      				window.location.href ='index.php';
+      				window.location.href ='../index.php';
  
 					});
                 </script>";
