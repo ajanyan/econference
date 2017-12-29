@@ -31,7 +31,7 @@
       
     }
 
-	$filename="../report/Report_R".$id.".txt";
+	$filename="../report/Report_R".$id.".doc";
     if(file_exists($filename))
 	{
 		header('Content-Type: application/octet-stream');
@@ -92,7 +92,7 @@ Status:$row[decision]";
  ?>
 
 
-<!DOCTYPE html>
+
 <html>
 <head>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
