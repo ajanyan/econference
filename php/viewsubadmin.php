@@ -94,7 +94,7 @@ $res=mysqli_query($db,$sql);
         }
        echo "<tr>
        <td><a href='../php/createsubadmin.php'><button class='btn btn-danger'>Create Reviewer</button></a></td>
-       <td></td>
+       <td><a href='../php/changeadminmail.php'><button class='btn btn-danger'>Change Admin Mail</button></a></td>
        <td></td>
        </tr>";
 
