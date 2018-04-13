@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 
 
@@ -124,3 +125,5 @@ Status:$row[decision]";
 
 </body>
 </html>
+=======
+>>>>>>> parent of e8eaada... Update report.php
