@@ -47,6 +47,9 @@
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item active">
+        <a class="nav-link" href="../design-team.html">Design Team</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="../php/logout.php">Logout</a>
       </li>
      

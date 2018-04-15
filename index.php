@@ -1,37 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Econference | Login</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/flex-grid.css">
+    <style>
+      a {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
 
-    <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Econference Login</title>
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- Favicon and touch icons -->
-    <!--     <link rel="shortcut icon" href="assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
- -->
-    </head>
-
-    <body>
 <?php 
     session_start();
     if(isset($_SESSION["user"]))
@@ -39,69 +23,49 @@
         header("location:php/autologin.php");
     }
 ?>
-        
+    
 
-        <!-- Top content -->
-        <div class="top-content">
-        	
-            <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Econference</strong> Login</h1>
-                            <div class="description">
-                            	<p>
-	                            	This is econference login form.If you haven't received your username please contact <strong>Admin</strong>
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left">
-                        			<h3>Login</h3>
-                            		
-                        		</div>
-                        		
-                            </div>
-                            <div class="form-bottom">
-			                    <form role="form" action="php/login.php" method="post" class="login-form">
-			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="email" placeholder="Email..." class="form-username form-control" id="form-username">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
-			                        </div>
-                                    <div class="form-group">
-                                        <a class="btn btn-link" href="html/recover.html"><b>Forgot password</b></a>
-                                    </div>
-			                        <button type="submit" class="btn">Sign in!</button>
-			                    </form>
-		                    </div>
-                        </div>
-                    </div>
-                   
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+
+
+
+    
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-brand hide-down-md">
+          NSS College of Engineering Econference System <!-- Seen in Desktop -->
         </div>
+        <div class="navbar-brand hide-up-md">
+          NSS College of Engineering <br/> Econference System <!-- Seen in Mobile Devices -->
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.php">Login</a></li>
+          <li><a href="design-team.html">Design Team</a></li>
+        </ul>
+      </nav>
+      <form action="php/login.php" id="loginForm" method="post">
+        <h4 class="title"><i class="material-icons">&#xE879;</i>Login</h4>
+        <div class="form-body">
+          <div class="input-grp">
+            <label for="email">Email</label>
+            <input type="email" class="input-txt" name="email" placeholder="johndoe@example.com">
+          </div>
+          <div class="input-grp">
+            <label for="password">Password</label>
+            <input type="password" class="input-txt" name="password" placeholder='&#9900;&#9900;&#9900;&#9900;&#9900;&#9900;'>
+          </div>
+          <button class="btn-login">Login</button>
+        </div>
+      </form>
 
-
-        <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
-        
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
-
-    </body>
-
+      <footer>
+        <div class="footer-content">
+          <span class="strong">Developed as part of Design Project</span>
+          <a href="http://www.NSS College of Engineering.ac.in/dep_cs/" class="light">(Department of CSE, NSS College of Engineering)</a>
+        </div>
+        <div class="copyright">
+          Copyright &copy; 2018-19 <a href="http://www.NSS College of Engineering.ac.in/dep_cs/">NSS College of Engineering, Palakkad</a>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

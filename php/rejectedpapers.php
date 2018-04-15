@@ -91,7 +91,7 @@ echo mysqli_error($db);
     <?php
       if( mysqli_num_rows( $res )==0 )
       {
-        echo '<tr><td colspan="4">No Papers Found</td></tr>';
+        echo '<tr><td colspan="5">No Papers Found</td></tr>';
       }
       else
       {

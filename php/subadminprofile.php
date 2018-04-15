@@ -5,10 +5,14 @@
   <style type="text/css">
     #myiframe {width:700px; height:350%;} 
   </style>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Econference</title>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+
 </head>
 <body>
 
@@ -33,7 +37,7 @@ $res=mysqli_query($db,$sql);
 echo mysqli_error($db);
 
 ?>
-
+  
 
 
   <nav class="navbar navbar-expand-md navbar-dark bg-danger">
@@ -51,6 +55,9 @@ echo mysqli_error($db);
       </li>
     </ul>
     <ul class="navbar-nav">
+       <li class="nav-item active">
+        <a class="nav-link" href="../design-team.html">Design Team</a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="../php/logout.php">Logout</a>
       </li>
@@ -78,7 +85,7 @@ echo mysqli_error($db);
     <?php
       if( mysqli_num_rows( $res )==0 )
       {
-        echo '<tr><td colspan="4">No Tasks Found</td></tr>';
+        echo '<tr><td colspan="5">No Tasks Found</td></tr>';
       }
       else
       {
